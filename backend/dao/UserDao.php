@@ -1,14 +1,20 @@
 <?php
-require_once __DIR__ . '/BaseDao.php';
+require_once __DIR__ . '/../config/Database.php'; // ako koristiš konekciju tu
 
-class UserDao extends BaseDao {
-    public function __construct($conn) {
-        parent::__construct($conn);
-        $this->table = 'users';
+class UserDao {
+    public function get_all() {
+        // zamijeni sa svojom logikom ako imaš bazu
+        return [
+            ["id" => 1, "name" => "Tarik"],
+            ["id" => 2, "name" => "Jasenko"]
+        ];
     }
 
-    public function create($data) {
-        return $this->insert($data);
+    public function get_by_id($id) {
+        return ["id" => $id, "name" => "Test"];
+    }
+
+    public function delete($id) {
+        return true;
     }
 }
-
